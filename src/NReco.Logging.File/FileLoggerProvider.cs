@@ -21,16 +21,14 @@ using System.Collections.Concurrent;
 using System.Text;
 
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Configuration;
+
 
 namespace NReco.Logging.File {
 
 	/// <summary>
 	/// Generic file logger provider.
 	/// </summary>
-#if NETSTANDARD2
 	[ProviderAlias("File")]
-#endif
 	public class FileLoggerProvider : ILoggerProvider {
 
 		private string LogFileName;

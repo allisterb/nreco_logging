@@ -21,7 +21,7 @@ using System.Collections.Concurrent;
 using System.Text;
 
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Configuration;
+
 
 namespace NReco.Logging.File
 {

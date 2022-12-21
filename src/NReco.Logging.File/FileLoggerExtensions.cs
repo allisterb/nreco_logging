@@ -28,7 +28,7 @@ namespace Microsoft.Extensions.Logging
     public static class FileLoggerExtensions
     {
 
-#if NETSTANDARD2
+
 
         /// <summary>
         /// Adds a file logger.
@@ -79,7 +79,7 @@ namespace Microsoft.Extensions.Logging
             return builder;
         }
 
-#endif
+
 
         /// <summary>
         /// Adds a file logger.
@@ -104,22 +104,7 @@ namespace Microsoft.Extensions.Logging
             var fileLoggerPrv = CreateFromConfiguration(configuration, configure);
             if (fileLoggerPrv == null)
                 return factory;
-#if NETSTANDARD1
-			var loggerSettings = new FilterLoggerSettings();
-			var logLevelsCfg = configuration.GetSection("LogLevel");
-			bool hasFilter = false;
-			if (logLevelsCfg!=null) {
-				var logLevels = logLevelsCfg.GetChildren();
-				foreach (var logLevel in logLevels) {
-					var logLevelValue = default(LogLevel);
-					Enum.TryParse(logLevel.Value, ignoreCase: true, result: out logLevelValue);
-					loggerSettings.Add(logLevel.Key, logLevelValue);
-					hasFilter = true;
-				}
-			}
-			if (hasFilter)
-				prvFactory = prvFactory.WithFilter(loggerSettings);
-#endif
+
 
             prvFactory.AddProvider(fileLoggerPrv);
             return factory;
