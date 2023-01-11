@@ -45,7 +45,7 @@ namespace NReco.Logging.File {
 			return logLevel>=LoggerPrv.MinLevel;
 		}
 
-		string GetShortLogLevel(LogLevel logLevel) {
+		public static string GetShortLogLevel(LogLevel logLevel) {
 			switch (logLevel) {
 				case LogLevel.Trace:
 					return "TRCE";
